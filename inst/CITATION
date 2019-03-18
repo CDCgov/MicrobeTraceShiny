@@ -1,0 +1,12 @@
+citHeader("To cite MicrobeTrace in publications use:")
+
+citEntry(entry = "Software",
+  title        = "MicrobeTrace",
+  author       = personList(as.person("Anthony Boyles"),
+                   as.person("Ells Campbell"))
+  url          = "https://github.com/CDCGov/MicrobeTrace",
+
+  textVersion  =
+  paste("Boyles, Anthony and Campbell, Ellsworth (2019).",
+        "MicrobeTrace. https://github.com/CDCGov/MicrobeTrace.")
+)
