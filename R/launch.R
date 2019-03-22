@@ -49,16 +49,24 @@ install_microbetrace <- function(dev = FALSE, force = FALSE, useGit = FALSE){
 
 #' launch_microbetrace
 #'
-#' @param dev
+#' @param dev Should we launch the dev Version of MicrobeTrace?
+#' @param port On what port should the Shiny Server Launch?
 #'
 #' @return NULL
 #' @export
 #'
 #' @examples
 #' MicrobeTraceShiny::launch_microbetrace()
-launch_microbetrace <- function(dev = FALSE){
+launch_microbetrace <- function(dev = FALSE, port){
   env <- ifelse(dev, "dev", "master")
   appDir <- system.file(env, package = "MicrobeTraceShiny")
-  if(!file.exists(paste0(appDir, '/www'))) install_microbetrace(dev)
-  shiny::runApp(appDir = appDir, launch.browser = TRUE)
+  if(!file.exists(paste0(appDir, '/www'))){
+    warning("Cannot find MicrobeTrace! Attempting to install...")
+    install_microbetrace(dev)
+  }
+  if(missing(port)){
+    shiny::runApp(appDir = appDir, launch.browser = TRUE)
+  } else {
+    shiny::runApp(appDir = appDir, launch.browser = TRUE, port = port)
+  }
 }
