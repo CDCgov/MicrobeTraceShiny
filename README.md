@@ -1,25 +1,46 @@
 # MicrobeTraceShiny
 
-Easily launch MicrobeTrace using R and Shiny
+Easily launch [MicrobeTrace](https://github.com/CDCgov/MicrobeTrace) using R and Shiny
 
 This repository was created for use by CDC programs to collaborate on public health surveillance related projects in support of the CDC Surveillance Strategy.  Github is not hosted by the CDC, but is used by CDC and its partners to share information and collaborate on software.
 
 ## Quick Start
 
-You'll need [Git](https://git-scm.com/) and [NodeJS](https://nodejs.org/en/) installed on your machine. You don't need to do anything with them, but MicrobeTrace needs them to download its dependencies. Once you've got those, fire up R and...
+You'll need [NodeJS](https://nodejs.org/en/) installed on your machine. You don't need to do anything with it, MicrobeTrace just needs it to download its Javascript dependencies. Once you've got Node installed, fire up R and...
 
 ```R
 # install the package:
 source("https://install-github.me/CDCGov/MicrobeTraceShiny")
 
-MicrobeTraceShiny::launch_microbetrace(TRUE)
+MicrobeTraceShiny::launch_microbetrace(dev = TRUE)
 ```
 
 And there you go!
 
 The first time you run it, MicrobeTraceShiny will download all the files needed to run MicrobeTrace (roughly 250MB), so it will take a little time to get going. Subsequent runs will require much less time (and bandwidth), since the files only need to be downloaded once.
 
-Note that you presently must pass `dev = TRUE` to install and launch MicrobeTrace successfully, as MicrobeTrace's Prod branch isn't compatible with this package (yet!)
+Note that you presently must pass `dev = TRUE` to install and launch MicrobeTrace successfully, as MicrobeTrace's master branch isn't compatible with this package yet.
+
+## Full Documentation
+
+```R
+install_microbetrace(dev = FALSE, force = FALSE, useGit = FALSE)
+```
+
+Installs MicrobeTrace.
+
+* `dev` - Should we install the dev branch? By default, installs the `master` branch. Use `dev = TRUE` to install the `dev` branch. Note that this is recommended, as the `master` branch presently includes a redirection rule that prevents MicrobeTraceShiny from working properly.
+* `force` - Should we force the installation of MicrobeTrace, even if it appears to already be installed? Useful if you believe MicrobeTrace was not properly downloaded the first time (e.g. your connection was interrupted), or you want to update to the bleeding-edge version of MicrobeTrace.
+* `useGit` - Should we attempt to get MicrobeTrace using `git`? If so, you must have `git` installed and available from PATH.
+
+```R
+launch_microbetrace(dev = FALSE, port)
+```
+
+Launches MicrobeTrace.
+
+* `dev` - Should we use the dev branch? By default, runs the `master` branch. Use `dev = TRUE` to run the `dev` branch. Note that this is recommended, as the `master` branch presently includes a redirection rule that prevents MicrobeTraceShiny from working properly.
+* `port` - From what port should MicrobeTrace be served? Defaults to Shiny's default port setting.
 
 ## Public Domain
 
