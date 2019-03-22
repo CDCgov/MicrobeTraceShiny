@@ -4,10 +4,17 @@
 \alias{install_microbetrace}
 \title{install_microbetrace}
 \usage{
-install_microbetrace(dev = FALSE)
+install_microbetrace(dev = FALSE, force = FALSE, useGit = FALSE)
 }
 \arguments{
-\item{dev}{}
+\item{dev}{Should the MicrobeTrace dev branch be installed?}
+
+\item{force}{Should MicrobeTrace be re-installed if it's already installed?}
+
+\item{useGit}{Should we attempt to use git to get MicrobeTrace?}
+}
+\value{
+Boolean TRUE if successful, FALSE if not.
 }
 \description{
 install_microbetrace
