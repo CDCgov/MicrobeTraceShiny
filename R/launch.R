@@ -8,7 +8,7 @@
 #' @examples
 #' MicrobeTraceShiny::install_microbetrace()
 install_microbetrace <- function(dev = FALSE){
-  env <- ifelse(dev, "dev", "prod")
+  env <- ifelse(dev, "dev", "master")
   appDir <- system.file(env, package = "MicrobeTraceShiny")
   if(Sys.which('git') == '') throw("Cannot find git. Please install git and ensure it is available on your PATH.")
   system(paste('cd', appDir, '&& git clone --recurse-submodules https://github.com/CDCgov/MicrobeTrace.git www'))
@@ -27,7 +27,7 @@ install_microbetrace <- function(dev = FALSE){
 #' @examples
 #' MicrobeTraceShiny::launch_microbetrace()
 launch_microbetrace <- function(dev = FALSE){
-  env <- ifelse(dev, "dev", "prod")
+  env <- ifelse(dev, "dev", "master")
   appDir <- system.file(env, package = "MicrobeTraceShiny")
   if(!file.exists(paste0(appDir, '/www'))) install_microbetrace(dev)
   shiny::runApp(appDir = appDir, launch.browser = TRUE)
