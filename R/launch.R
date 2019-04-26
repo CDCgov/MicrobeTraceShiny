@@ -10,10 +10,6 @@
 #' @examples
 #' MicrobeTraceShiny::install_microbetrace()
 install_microbetrace <- function(dev = FALSE, force = FALSE, useGit = FALSE){
-  if(Sys.which('npm') == ''){
-    warning("Cannot find npm. Please install NodeJS and ensure it is available on your PATH.")
-    return(FALSE)
-  }
   if(useGit && Sys.which('git') == ''){
     warning("Cannot find git. Please set useGit = FALSE or install git and ensure it is available on your PATH.")
     return(FALSE)
@@ -43,7 +39,6 @@ install_microbetrace <- function(dev = FALSE, force = FALSE, useGit = FALSE){
       return(FALSE)
     }
   }
-  system(paste0('cd ', appDir, '/www && npm install'))
   return(TRUE)
 }
 
@@ -60,9 +55,14 @@ install_microbetrace <- function(dev = FALSE, force = FALSE, useGit = FALSE){
 launch_microbetrace <- function(dev = FALSE, port){
   env <- ifelse(dev, "dev", "master")
   appDir <- system.file(env, package = "MicrobeTraceShiny")
+  goForLaunch <- TRUE
   if(!file.exists(paste0(appDir, '/www'))){
-    warning("Cannot find MicrobeTrace! Attempting to install...")
-    install_microbetrace(dev)
+    warning("Cannot find MicrobeTrace! Attempting to install...", immediate. = TRUE)
+    goForLaunch <- install_microbetrace(dev)
+  }
+  if(!goForLaunch){
+    warning('Could not launch MicrobeTrace!', immediate. = TRUE)
+    return()
   }
   if(missing(port)){
     shiny::runApp(appDir = appDir, launch.browser = TRUE)

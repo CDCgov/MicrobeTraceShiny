@@ -1,25 +1,23 @@
 # MicrobeTraceShiny
 
-Easily launch [MicrobeTrace](https://github.com/CDCgov/MicrobeTrace) using R and Shiny
+Easily launch [MicrobeTrace](https://github.com/CDCgov/MicrobeTrace) from R using Shiny
 
 This repository was created for use by CDC programs to collaborate on public health surveillance related projects in support of the CDC Surveillance Strategy.  Github is not hosted by the CDC, but is used by CDC and its partners to share information and collaborate on software.
 
 ## Quick Start
 
-You'll need [NodeJS](https://nodejs.org/en/) installed on your machine. You don't need to do anything with it, MicrobeTrace just needs it to download its Javascript dependencies. Once you've got Node installed, fire up R and...
+Fire up R and...
 
 ```R
 # install the package:
 source("https://install-github.me/CDCGov/MicrobeTraceShiny")
 
-MicrobeTraceShiny::launch_microbetrace(dev = TRUE)
+MicrobeTraceShiny::launch_microbetrace()
 ```
 
 And there you go!
 
-The first time you run it, MicrobeTraceShiny will download all the files needed to run MicrobeTrace (roughly 250MB), so it will take a little time to get going. Subsequent runs will require much less time (and bandwidth), since the files only need to be downloaded once.
-
-Note that you presently must pass `dev = TRUE` to install and launch MicrobeTrace successfully, as MicrobeTrace's master branch isn't compatible with this package yet.
+The first time you run it, MicrobeTraceShiny will download all the files needed to run MicrobeTrace (roughly 12MB). Subsequent runs will require much less time (and bandwidth), since the files only need to be downloaded once.
 
 ## Full Documentation
 
