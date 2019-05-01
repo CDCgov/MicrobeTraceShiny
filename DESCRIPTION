@@ -1,7 +1,7 @@
 Package: MicrobeTraceShiny
 Type: Package
 Title: Easily launch MicrobeTrace using R and Shiny
-Version: 0.1.0
+Version: 0.2.0
 Author: Tony Boyles <nsp3@cdc.gov>
 Maintainer: Tony Boyles <nsp3@cdc.gov>
 Description: Easily launch MicrobeTrace using R and Shiny

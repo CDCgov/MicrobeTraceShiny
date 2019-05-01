@@ -4,10 +4,10 @@
 \alias{launch_microbetrace}
 \title{launch_microbetrace}
 \usage{
-launch_microbetrace(dev = FALSE, port)
+launch_microbetrace(branch = FALSE, port)
 }
 \arguments{
-\item{dev}{Should we launch the dev Version of MicrobeTrace?}
+\item{branch}{Which branch of MicrobeTrace should we launch?}
 
 \item{port}{On what port should the Shiny Server Launch?}
 }

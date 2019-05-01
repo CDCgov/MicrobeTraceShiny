@@ -4,10 +4,11 @@
 \alias{install_microbetrace}
 \title{install_microbetrace}
 \usage{
-install_microbetrace(dev = FALSE, force = FALSE, useGit = FALSE)
+install_microbetrace(branch = "master", force = FALSE,
+  useGit = FALSE)
 }
 \arguments{
-\item{dev}{Should the MicrobeTrace dev branch be installed?}
+\item{branch}{Which branch of MicrobeTrace should we install?}
 
 \item{force}{Should MicrobeTrace be re-installed if it's already installed?}
 

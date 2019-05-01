@@ -22,22 +22,22 @@ The first time you run it, MicrobeTraceShiny will download all the files needed 
 ## Full Documentation
 
 ```R
-install_microbetrace(dev = FALSE, force = FALSE, useGit = FALSE)
+install_microbetrace(branch = 'master', force = FALSE, useGit = FALSE)
 ```
 
 Installs MicrobeTrace.
 
-* `dev` - Should we install the dev branch? By default, installs the `master` branch. Use `dev = TRUE` to install the `dev` branch. Note that this is recommended, as the `master` branch presently includes a redirection rule that prevents MicrobeTraceShiny from working properly.
+* `branch` - Should we install the dev branch? By default, installs the `master` branch. Use `dev = TRUE` to install the `dev` branch. Note that this is recommended, as the `master` branch presently includes a redirection rule that prevents MicrobeTraceShiny from working properly.
 * `force` - Should we force the installation of MicrobeTrace, even if it appears to already be installed? Useful if you believe MicrobeTrace was not properly downloaded the first time (e.g. your connection was interrupted), or you want to update to the bleeding-edge version of MicrobeTrace.
 * `useGit` - Should we attempt to get MicrobeTrace using `git`? If so, you must have `git` installed and available from PATH.
 
 ```R
-launch_microbetrace(dev = FALSE, port)
+launch_microbetrace(branch = 'master', port)
 ```
 
 Launches MicrobeTrace.
 
-* `dev` - Should we use the dev branch? By default, runs the `master` branch. Use `dev = TRUE` to run the `dev` branch. Note that this is recommended, as the `master` branch presently includes a redirection rule that prevents MicrobeTraceShiny from working properly.
+* `branch` - Should we use the dev branch? By default, runs the `master` branch. Use `dev = TRUE` to run the `dev` branch. Note that this is recommended, as the `master` branch presently includes a redirection rule that prevents MicrobeTraceShiny from working properly.
 * `port` - From what port should MicrobeTrace be served? Defaults to Shiny's default port setting.
 
 ## Public Domain
